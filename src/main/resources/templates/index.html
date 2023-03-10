@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>首页</h2>
+
+
+
+<div th:text="${name}" ></div>
+<!--<div th:text="’hello’ + ${name}" th:value="${name}"></div>-->
+
+
+
+    <!--测试循环-->
+    <table>
+        <!--s 表示集合中的元素 ${slist}表示后台存储的集合 -->
+        <tr th:each="s,stat: ${arrayList}">
+            <td th:text="${s}"></td>
+            <td th:text="${stat.index}"></td>
+            <td th:text="${stat.count}"></td>
+            <td th:text="${stat.size}"></td>
+            <td th:text="${stat.even}"></td>
+            <td th:text="${stat.odd}"></td>
+            <td th:text="${stat.first}"></td>
+            <td th:text="${stat.last}"></td>
+        </tr>
+    </table>
+
+
+<h2>判断 if</h2>
+<div th:if="${age}>=18" >good</div>
+<a th:unless="${age != 18}"  >atguigu</a>
+<h2>判断 三元</h2>
+<div th:text="${age}>=18?'success':'failure'"></div>
+
+
+<div th:text="${session.addr}"> </div>
+
+<div th:include="head"/>
+
+
+<p th:utext="${gname}">color</p>
+
+<a th:href="@{http://localhost:8080/list.html?category1Id={category1Id}(category1Id=${category1Id})}">点我带你飞</a>
+
+<h2> 多种方式存储数据1 </h2>
+
+<div th:text="${addr}"></div>
+<div th:text="${id}"></div>
+
+<h2> 多种方式存储数据2 </h2>
+
+<div th:text="${stuNo}"></div>
+<div th:text="${stuName}"></div>
+
+
+
+</body>
+</html>
